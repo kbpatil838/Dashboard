@@ -1,0 +1,144 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-6 col-sm-6">
+              <div class="card card-stats">
+                  <div class="card-header card-header-warning card-header-icon">
+                      <div class="card-icon">
+                          <i class="material-icons">content_copy</i>
+                      </div>
+                      <p class="card-category">Today's Total Tests</p>
+                      <h3 class="card-title">{{Tests}}
+                      </h3>
+                  </div>
+                  <div class="card-footer">
+                      <!-- <div class="stats">
+                          <i class="material-icons text-danger"></i>
+                          <a href="javascript:void(0)"></a>
+                      </div> -->
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-6 col-sm-6">
+              <div class="card card-stats">
+                  <div class="card-header card-header-success card-header-icon">
+                      <div class="card-icon">
+                          <i class="material-icons">store</i>
+                      </div>
+                      <p class="card-category">Total Test Cases</p>
+                      <h3 class="card-title">{{total}}</h3>
+                  </div>
+                  <div class="card-footer">
+                      <!-- <div class="stats">
+                          <i class="material-icons"></i> 
+                      </div> -->
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-6 col-sm-6">
+              <div class="card card-stats">
+                  <div class="card-header card-header-danger card-header-icon">
+                      <div class="card-icon">
+                          <i class="material-icons">info_outline</i>
+                      </div>
+                      <p class="card-category">Total Critical Tests</p>
+                      <h3 class="card-title">{{criti}}</h3>
+                  </div>
+                  <div class="card-footer">
+                      <!-- <div class="stats">
+                          <i class="material-icons">local_offer</i> Tracked from Github
+                      </div> -->
+                  </div>
+              </div>
+          </div>
+          <!-- <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                  <div class="card-header card-header-info card-header-icon">
+                      <div class="card-icon">
+                          <i class="fa fa-twitter"></i>
+                      </div>
+                      <p class="card-category">Followers</p>
+                      <h3 class="card-title">+245</h3>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons">update</i> Just Updated
+                      </div>
+                  </div>
+              </div>
+          </div> -->
+      </div>
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card card-chart">
+                <div class="card-header card-header">
+                    <div >
+                        <canvas id="canvas1"></canvas>
+                      </div> 
+                  </div> 
+                  <!-- <div class="card-body">
+                     
+                      <p class="card-category">
+                          <span class="text-success"><i class="fa fa-long-arrow-up"></i></span></p>
+                  </div> -->
+                  <div class="card-footer">
+                    <h4 class="card-title">Today's Total Pass And Fail Test Cases</h4>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-12">
+              <div class="card card-chart">
+                <div class="card-header card-header">
+                    <div>
+                        <canvas id="canvas2"></canvas>
+                          </div> 
+            
+              </div>
+                  <!-- <div class="card-body">
+                      <h4 class="card-title">Email Subscriptions</h4>
+                      <p class="card-category">Last Campaign Performance</p>
+                  </div> -->
+                  <div class="card-footer">
+                    <h4 class="card-title">Pass/Fail Test Cases For Every Tests</h4>
+                  </div>
+              </div>
+          </div>
+          
+      </div>
+      <div class="row">
+          <div class="col-lg-12 col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-warning">
+                      <h4 class="card-title">Test Cases Status</h4>
+                      
+                  </div>
+                  <div class="card-body table-responsive">
+                      <table class="table table-hover">
+                          <thead class="text-warning">
+                            <th>Sl.No</th> 
+                            <th>Name</th>
+                            <th>S_time</th>
+                            <th>E_time</th>
+                            <th>Pass</th>
+                            <th>Fail</th>
+                            <th>Critical</th>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor ="let list of List;let i = index" >
+                                <td>{{i+1}}</td>
+                                <td>{{list.name}}</td>
+                                <td>{{list.s_time| slice:9}}</td>
+                                <td>{{list.e_time| slice:9}}</td>
+                                <td>{{list.pass}}</td>
+                                <td>{{list.fail}}</td>
+                                <td>{{list.critical}}</td>
+                            </tr>
+                              
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
