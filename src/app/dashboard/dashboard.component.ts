@@ -112,9 +112,12 @@ export class DashboardComponent implements OnInit {
              this.fail_data.push(this.List[j]['fail'])
              
            }
-           console.log(this.pass_data)
-           console.log(this.fail_data)
-           this.plotchart();
+           //console.log(this.pass_data)
+           //console.log(this.fail_data)
+           setTimeout(() => {
+            this.plotchart();
+           }, 100)
+           
          })
   }
 
