@@ -1,0 +1,47 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12" >
+                <div class="card" >
+                    <div class="card-header card-header-danger">
+                            <div class="row">
+                                    <div class="col-md-10">
+                                          <h4 class="card-title ">Fail Tests</h4>
+                                    </div>
+                                    <div class="col-md-2">
+                                          <button type="button" name="button" (click)="backClicked()">Go back</button>
+                                    </div>
+          
+                                </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                  <th>Sl.No</th> 
+                                  <th>Name</th>
+                                  <th>Doc</th>
+                                  <th>Tag</th>
+                                  <th>S_time</th>
+                                  <th>E_time</th>
+                                  <th>Critical</th>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor ="let name of fail_tests;let i = index" >
+                                      <td>{{i+1}}</td>
+                                      <td>{{name.uname}}</td>
+                                      <td>{{name.doc}}</td>
+                                      <td>{{name.tags.tag}}</td>
+                                      <td>{{name.tstart |slice:9}}</td>
+                                      <td>{{name.tend |slice:9}}</td>
+                                      <td>{{name.tcritical}}</td>
+                                  </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>

@@ -14,11 +14,11 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { TableListComponent } from './table-list/table-list.component';
-
-import {
-  AgmCoreModule
-} from '@agm/core';
+import { PassComponent } from './pass/pass.component';
+import { FailComponent } from './fail/fail.component';
+import {AgmCoreModule} from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+
 
 @NgModule({
   imports: [
@@ -37,6 +37,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+  
 
   ],
   providers: [],

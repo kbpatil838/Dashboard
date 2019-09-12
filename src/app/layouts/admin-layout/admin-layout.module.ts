@@ -4,8 +4,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
-
 import { TableListComponent } from '../../table-list/table-list.component';
+import { PassComponent } from '../../pass/pass.component';
+import { FailComponent } from '../../fail/fail.component';
 
 
 import {
@@ -31,7 +32,8 @@ import {
   ],
   declarations: [
     DashboardComponent,
-    
+    PassComponent,
+    FailComponent,
     TableListComponent,
     
   ]

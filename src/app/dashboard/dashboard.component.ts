@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+//import { Router } from '@angular/router'
 //import * as Chartist from 'chartist';
 import { DataService } from '../data.service';
 import { Chart } from 'chart.js';
@@ -19,21 +20,26 @@ export class DashboardComponent implements OnInit {
   lables = [];
   pass_data =[];
   fail_data =[];
+  
+  
 
-  constructor(private dataservice: DataService) { }
+  constructor( private dataservice: DataService) { }
   
   
   ngOnInit() {
 
     this.tests();
     this.get_count();
+    
   }
 
+  
   plotchart() {
+    
     this.chart = new Chart('canvas1', {
       type: 'pie',
       data: {
-        labels: ['Pass','Fail'],
+        labels: ['pass','Fail'],
         datasets: [
           { 
             data:this.Data,
@@ -44,8 +50,20 @@ export class DashboardComponent implements OnInit {
       },
       options: {
         legend: {
-          display: true
+          display: false
         },
+        onClick:function(e){
+          var activePoints = this.chart.getElementsAtEvent(e);
+          var selectedIndex = activePoints[0]._index;
+          this.name = this.data.labels[selectedIndex];
+          console.log(this.data.datasets[0].data[selectedIndex],this.data.labels[selectedIndex]);
+          if (this.data.labels[selectedIndex] == "Fail"){
+            location.href = '/#/fail_tests';
+          }
+          else {
+            location.href = '/#/pass_tests';
+          }
+      },
         tooltips:{
           enabled: true
         }
@@ -69,7 +87,7 @@ export class DashboardComponent implements OnInit {
       options: {
          responsive: true,
          legend: {
-            display: true
+            display: false
          },
          scales: {
             
@@ -100,7 +118,6 @@ export class DashboardComponent implements OnInit {
   get_count(){
     this.dataservice.getCount()
          .subscribe(d =>{
-          //console.log(d);
            var b = d;
            this.criti= b['critical'];
            this.total = b['total'];
@@ -112,8 +129,6 @@ export class DashboardComponent implements OnInit {
              this.fail_data.push(this.List[j]['fail'])
              
            }
-           //console.log(this.pass_data)
-           //console.log(this.fail_data)
            setTimeout(() => {
             this.plotchart();
            }, 100)
@@ -121,4 +136,17 @@ export class DashboardComponent implements OnInit {
          })
   }
 
+  // canvas = document.getElementById('canvas1');
+  // myChart = new Chart(this.canvas, this.chart);
+
+  // canvas.onclick = function(evt) { alert("hello world");
+  //    var activePoint = this.myChart.getElementAtEvent(evt)[0];
+  //    var data = activePoint._chart.data;
+  //    var datasetIndex = activePoint._datasetIndex;
+  //    var label = data.datasets[datasetIndex].label;
+  //    var value = data.datasets[datasetIndex].data[activePoint._index];
+  //    console.log(label, value);
+  // };
+  
 }
+
